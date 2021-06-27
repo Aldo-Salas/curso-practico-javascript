@@ -10,6 +10,15 @@ function areaCuadrado(lado) {
 
 // Código del triángulo
 
+function alturaTriangulo(lado1, lado2, base) {
+  const altura = Math.sqrt(Math.pow(lado1, 2) - (Math.pow(base / 2, 2)));
+  if(lado1 === lado2) {
+    return altura;
+  } else {
+    alert("Este no es un triangulo isóceles");
+  }
+}
+
 function perimetroTriangulo(lado1, lado2, base) {
   return lado1 + lado2 + base;
 }
@@ -55,6 +64,18 @@ function calcularAreaCuadrado() {
 }
 
 // Triangulo
+function calcularAlturaTriangulo() {
+  const inputLado1 = document.getElementById('InputTrianguloCateto1');
+  const inputLado2 = document.getElementById('InputTrianguloHipotenusa');
+  const inputBase = document.getElementById('InputTrianguloCateto2');
+  const valueCateto1 = inputLado1.value;
+  const valueHipotenusa = inputLado2.value;
+  const valueBase = inputBase.value;
+
+  const altura = alturaTriangulo(valueCateto1, valueHipotenusa, valueBase);
+  alert(altura);
+}
+
 function calcularPerimetroTriangulo() {
   const inputLado1 = document.getElementById('InputTrianguloLado1');
   const inputLado2 = document.getElementById('InputTrianguloLado2');
