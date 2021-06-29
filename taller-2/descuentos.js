@@ -10,39 +10,17 @@ function calcularDescuento() {
   const priceValue = inputPrice.value;
 
   const inputDiscount = document.getElementById('InputDiscount');
-  const discountValue = inputDiscount.value;
+  const discountValue = parseInt(inputDiscount.value);
 
-  const inputCoupon = document.getElementById('InputCoupon');
-  const couponValue = inputCoupon.value;
-
-  const coupons = [
-    {
-      name: "Descuento",
-      discount: 15,
-    },
-    {
-      name: "Platzi",
-      discount: 30,
-    },
-    {
-      name: "100OFF",
-      discount: 100,
-    },
-  ];
-
-  const isCouponValid = coupon => {
-    return coupon.name === couponValue;
-  }
-
-  const userCoupon = coupons.find(isCouponValid);
-
-  if (!userCoupon) {
-    alert(`Cupón ${couponValue} no es válido`);
+  if (discountValue > 100) {
+    alert('El porcentaje debe de ser igual o menor a 100.');
+  } else if (discountValue < 0) {
+    alert('El descuento no puede ser negativo.')
   } else {
-    const descuento = userCoupon.discount;
-    const precioConDescuento = calcularPrecioConDescuento(priceValue, descuento);
+    const precioConDescuento = calcularPrecioConDescuento(priceValue, discountValue);
 
     const result = document.getElementById('ResultPrice');
-    result.innerText = `El precio con descuento es: $${precioConDescuento}`;
+    result.innerText = `El precio con ${discountValue}% de descuento es: $${precioConDescuento}`;
   }
+
 }
