@@ -31,4 +31,4 @@ function medianaSalarios(lista) {
   }
 }
 
-console.log(medianaSalarios(salariosColSorted));
+console.log(`La mediana de los salarios de Colombia son: $${medianaSalarios(salariosColSorted)}`);
